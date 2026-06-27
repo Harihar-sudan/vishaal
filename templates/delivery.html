@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delivery Entry</title>
+</head>
+<body>
+    <h1>Delivery</h1>
+
+    <!-- New Entry Form -->
+    <form method="POST" action="/delivery">
+        <label>Date:</label>
+        <input type="text" name="date"><br><br>
+
+        <label>D.No:</label>
+        <input type="text" name="dno"><br><br>
+
+        <label>PCS:</label>
+        <input type="number" name="pcs"><br><br>
+
+        <label>Weight:</label>
+        <input type="number" step="0.01" name="weight"><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br>
+    <!-- Button to See Old Data -->
+    <button onclick="window.location.href='/delivery/old'">See Old Data</button>
+</body>
+</html>
