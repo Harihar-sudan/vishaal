@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Old Data</title>
+</head>
+<body>
+    <h1>Old Data</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>D.No</th>
+            {% if show_pcs %}
+                <th>PCS</th>
+            {% endif %}
+            <th>Weight</th>
+            <th>Action</th>
+        </tr>
+        {% for entry in deliveries %}
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.dno }}</td>
+            {% if show_pcs %}
+                <td>{{ entry.pcs }}</td>
+            {% endif %}
+            <td>{{ entry.weight }}</td>
+            <td>
+                <a href="/edit/{{ entry.id }}">Edit</a> |
+                <a href="/delete/{{ entry.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    {% if show_pcs %}
+        <a href="/delete_all/delivery">Delete All Delivery Data</a>
+    {% else %}
+        <a href="/delete_all/received">Delete All Received Data</a>
+    {% endif %}
+    <br><br>
+    {% if show_pcs %}
+        <a href="/download/delivery">Download Delivery Excel</a>
+    {% else %}
+        <a href="/download/received">Download Received Excel</a>
+    {% endif %}
+</body>
+</html>
